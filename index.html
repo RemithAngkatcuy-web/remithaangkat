@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Pergerakan Jupiter dengan Metode Euler</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Menyertakan MathJax untuk render persamaan matematika -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Metode Numerik Euler dalam Simulasi Pergerakan Jupiter</h1>
+        <h1>Remitha Angkat | 122290099</h1>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h2>Pengenalan Metode Euler</h2>
+            <p>
+                Metode Euler adalah salah satu metode numerik paling sederhana untuk menyelesaikan persamaan diferensial. Metode ini bekerja dengan mendekati solusi persamaan diferensial menggunakan pendekatan linier pada interval kecil.
+            </p>
+            <p>
+                Dalam konteks simulasi pergerakan planet, metode Euler dapat digunakan untuk menghitung posisi dan kecepatan planet berdasarkan gaya gravitasi yang bekerja. Berikut ini adalah penerapan metode Euler dalam simulasi pergerakan Jupiter mengelilingi Matahari.
+            </p>
+        </section>
+
+        <section id="equations">
+            <h2>Persamaan Matematis</h2>
+            <p>
+                Simulasi ini menggunakan hukum gravitasi Newton dan metode Euler untuk integrasi numerik. Berikut adalah persamaan yang digunakan:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        <strong>Hukum Gravitasi Newton:</strong>
+                        \[
+                        \mathbf{F} = G \frac{m_1 m_2}{r^2} \hat{\mathbf{r}}
+                        \]
+                        di mana:
+                        <ul>
+                            <li>\( \mathbf{F} \) = gaya gravitasi</li>
+                            <li>\( G \) = konstanta gravitasi (\(6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}\))</li>
+                            <li>\( m_1 \) dan \( m_2 \) = massa kedua benda</li>
+                            <li>\( r \) = jarak antara kedua benda</li>
+                            <li>\( \hat{\mathbf{r}} \) = vektor satuan dari satu benda ke benda lainnya</li>
+                        </ul>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <strong>Metode Euler untuk Integrasi:</strong>
+                        <ul>
+                            <li>
+                                <strong>Kecepatan:</strong>
+                                \[
+                                \mathbf{v}_{\text{baru}} = \mathbf{v}_{\text{lama}} + \mathbf{a} \cdot \Delta t
+                                \]
+                            </li>
+                            <li>
+                                <strong>Posisi:</strong>
+                                \[
+                                \mathbf{p}_{\text{baru}} = \mathbf{p}_{\text{lama}} + \mathbf{v}_{\text{baru}} \cdot \Delta t
+                                \]
+                            </li>
+                        </ul>
+                        di mana:
+                        <ul>
+                            <li>\( \mathbf{v} \) = kecepatan</li>
+                            <li>\( \mathbf{a} \) = percepatan</li>
+                            <li>\( \Delta t \) = interval waktu</li>
+                            <li>\( \mathbf{p} \) = posisi</li>
+                        </ul>
+                    </p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="simulation">
+            <h2>Simulasi Pergerakan Jupiter</h2>
+            <canvas id="simulationCanvas" width="800" height="800"></canvas>
+            <div class="controls">
+                <button id="resetButton">Reset Simulasi</button>
+            </div>
+            <div class="coordinates">
+                <h3>Koordinat Posisi Jupiter</h3>
+                <p id="positionDisplay">X: 0 m, Y: 0 m</p>
+            </div>
+        </section>
+
+        <section id="euler-method">
+            <h2>Langkah-langkah Metode Euler</h2>
+            <ol>
+                <li>Inisialisasi posisi dan kecepatan awal Jupiter.</li>
+                <li>Menghitung gaya gravitasi yang bekerja pada Jupiter dari Matahari.</li>
+                <li>Menggunakan gaya tersebut untuk menghitung percepatan.</li>
+                <li>Mengupdate kecepatan dan posisi Jupiter menggunakan metode Euler.</li>
+                <li>Mengulangi proses ini dalam langkah waktu yang ditentukan.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Simulasi Planetarium</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
